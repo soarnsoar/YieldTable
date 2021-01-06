@@ -41,7 +41,7 @@ def CombineYield(dict_yield,dict_combine):
 #               }
 #}
 ##--order of cut and proc follows input cutlist/proclist
-def mkTable(cutlist,proclist,caption,label,input_dict,outputtxt):
+def mkTable(proclist,caption,label,input_dict,outputtxt):
         '''
         \begin{table}[h]
         \centering
@@ -57,21 +57,38 @@ def mkTable(cutlist,proclist,caption,label,input_dict,outputtxt):
         \end{table}
         '''
         lines=[]
+        catlist=sorted(input_dict)
 
+        cutlist=[]
+        for cat in sorted(catlist):
+                cutlist+=input_dict[cat]
+        
         lines.append('\\begin{table}[h]\n\\centering')
         lines.append('\\caption{'+caption+'}')
         blocks='|'.join(['l']*(len(cutlist)+1))
         lines.append('\\begin{tabular}{|'+blocks+'|}')
         ##--1st row ->cuts
         lines.append('\\hline')
-        fistrow='&'.join(cutlist)
-        lines.append('Process &'+fistrow+'\\\\ \\hline')
+        
+        #fistrow='&'.join(cutlist)
+        #lines.append('Process &'+fistrow+'\\\\ \\hline')
+        '''
+        \multicolumn{3}{c|}
+        '''
+        firstrow='\multirow{2}{*}{Process} &'
+        multicolums=['\\multicolumn{'+str(len(input_dict[cat]))+'}{c|}{'+cat+'}' for cat in sorted(catlist) ]
+        #+'&\\multicolumn{'+str(len(catlist))+'}'+'&'.join(catlist)+'\\\\ \\cline{2-'+str(len(cutlist)+1)+'}'
+        firstrow+='&'.join(multicolums)+'\\\\ \\cline{2-'+str(len(cutlist)+1)+'}'
+        lines.append(firstrow)
+        lines.append('&'+'&'.join(cutlist)+'\\\\ \\hline')
+        
         ##--proc by proc
         for proc in proclist:
                 this_line=proc
-                for cut in cutlist:
-                        this_yield=input_dict[cut][proc]
-                        this_line+=' &'+str(this_yield)
+                for cat in catlist:
+                        for cut in input_dict[cat]:
+                                this_yield=input_dict[cat][cut][proc]
+                                this_line+=' &'+str(round(this_yield,2))
                 this_line+=' \\\\'
                 lines.append(this_line)
 
