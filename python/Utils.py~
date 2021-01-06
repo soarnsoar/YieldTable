@@ -26,12 +26,12 @@ def CombineYield(dict_yield,dict_combine):
         for proc in sorted(dict_yield):
                 for proc_comb in sorted(dict_combine):
                         sumyield=0.
-                        for subproc in sorted(dict_combine[proc_comb]):
+                        for subproc in dict_combine[proc_comb]['list']:
                                 this_yield=dict_yield[subproc]
                                 sumyield+=this_yield
                         dict_yield[proc_comb]=sumyield
         ##--remove old one
-        for subproc in sorted(dict_combine[proc_comb]):
+        for subproc in sorted(dict_combine[proc_comb]['list']):
                 del dict_yield[subproc]
 
         return dict_yield
@@ -75,7 +75,7 @@ def mkTable(proclist,caption,label,input_dict,outputtxt):
         '''
         \multicolumn{3}{c|}
         '''
-        firstrow='\multirow{2}{*}{Process}'
+        firstrow='\multirow{2}{*}{Process} &'
         multicolums=['\\multicolumn{'+str(len(input_dict[cat]))+'}{c|}{'+cat+'}' for cat in sorted(catlist) ]
         #+'&\\multicolumn{'+str(len(catlist))+'}'+'&'.join(catlist)+'\\\\ \\cline{2-'+str(len(cutlist)+1)+'}'
         firstrow+='&'.join(multicolums)+'\\\\ \\cline{2-'+str(len(cutlist)+1)+'}'
@@ -97,8 +97,10 @@ def mkTable(proclist,caption,label,input_dict,outputtxt):
         lines.append('\\end{tabular}')
         lines.append('\\label{'+label+'}')
         lines.append('\\end{table}')
-
+        ##---
+        print "--------------START------------"
         for line in lines:
                 print line
+        print "--------------END------------"
 
         

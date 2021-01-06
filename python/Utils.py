@@ -26,12 +26,12 @@ def CombineYield(dict_yield,dict_combine):
         for proc in sorted(dict_yield):
                 for proc_comb in sorted(dict_combine):
                         sumyield=0.
-                        for subproc in sorted(dict_combine[proc_comb]):
+                        for subproc in dict_combine[proc_comb]['list']:
                                 this_yield=dict_yield[subproc]
                                 sumyield+=this_yield
-                        dict_yield[proc_comb]=sumyield
+                        dict_yield[proc_comb]=sumyield*dict_combine[proc_comb]['scale']
         ##--remove old one
-        for subproc in sorted(dict_combine[proc_comb]):
+        for subproc in sorted(dict_combine[proc_comb]['list']):
                 del dict_yield[subproc]
 
         return dict_yield
@@ -97,8 +97,10 @@ def mkTable(proclist,caption,label,input_dict,outputtxt):
         lines.append('\\end{tabular}')
         lines.append('\\label{'+label+'}')
         lines.append('\\end{table}')
-
+        ##---
+        print "--------------START------------"
         for line in lines:
                 print line
+        print "--------------END------------"
 
         
