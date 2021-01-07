@@ -21,6 +21,7 @@ def ReadYield(inputpath,processlist):
         myrf.Close()
         return dict_yield
 
+
 def CombineYield(dict_yield,dict_combine):
         ##--dict_combine={'combined_process_name':['tocomb1','tocomb2']}
         for proc in sorted(dict_yield):

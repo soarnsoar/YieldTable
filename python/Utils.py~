@@ -29,7 +29,7 @@ def CombineYield(dict_yield,dict_combine):
                         for subproc in dict_combine[proc_comb]['list']:
                                 this_yield=dict_yield[subproc]
                                 sumyield+=this_yield
-                        dict_yield[proc_comb]=sumyield
+                        dict_yield[proc_comb]=sumyield*dict_combine[proc_comb]['scale']
         ##--remove old one
         for subproc in sorted(dict_combine[proc_comb]['list']):
                 del dict_yield[subproc]
