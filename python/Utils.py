@@ -105,3 +105,35 @@ def mkTable(proclist,caption,label,input_dict,outputtxt):
         print "--------------END------------"
 
         
+
+
+##--------sysvar
+def ReadYieldVar(inputpath,process,nuisance):
+	##---Read Total integrals
+	myrf=ROOT.TFile.Open(inputpath)
+
+        dict_yield={}
+
+        ##--for each process
+        
+        if 'histo_' in process:
+                process=process.replace('histo_','')
+        histopath_nom='histo_'+process
+        histopath_var='histo_'+process+'_'+nuisance
+
+        
+        #print histopath
+
+        nomhisto=myrf.Get(histopath_nom)
+        nom=nomhisto.Integral()
+        varhisto=myrf.Get(histopath_var)
+        var=varhisto.Integral()
+
+
+        #dict_yield[process]=myhisto.Integral()
+
+        myrf.Close()
+        #return dict_yield
+        
+        r_var=abs((nom-var)/nom)
+        return r_var
