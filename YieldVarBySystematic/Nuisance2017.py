@@ -1,0 +1,123 @@
+def Vaidation(nuilist,nuidict):
+    listfromdict=[]
+    for group in nuidict:
+        listfromdict+=nuidict[group]['list']
+    
+    print 'len(listfromdict)=',len(listfromdict)
+    print 'len(nuilist)=',len(nuilist)
+    for nui in nuilist:
+        if not nui in listfromdict:
+            print '!!Missing->',nui
+    for nui in listfromdict:
+        if not nui in nuilist:
+            print '!!Wrong->',nui
+
+        
+        
+    if len(set(listfromdict))!=len(listfromdict):
+           print "Double Counting!@!!"
+
+
+list2017=['CMS_ak4jet_jesEC2_2017', 'CMS_ak8jet_jesBBEC1', 'lumi_13TeV_LSCale', 'CMS_ak8jet_jesHF_2017', 'UEPS_ISR', 'CMS_ak8jet_jesAbsolute', 'lumi_13TeV_Ghosts', 'CMS_ak4jet_jesRelativeBal', 'lumi_13TeV_2017', 'QCDscale_ttbar_ACCEPT', 'pdf_gg_ACCEPT', 'QCDscale_gg_ACCEPT', 'CMS_ak4jet_jer_2017', 'CMS_ak4jet_jesAbsolute_2017', 'mjjshape_2017', 'CMS_ak4jet_jesFlavorQCD', 'CMS_ak8jet_jesEC2_2017', 'CMS_ak8jet_jesEC2', 'pdf_Higgs_gg', 'CMS_ak4jet_jesHF', 'CMS_btag_hfstats2_2017', 'CMS_ak8jet_jesHF', 'CMS_btag_cferr1', 'lumi_13TeV_XYFact', 'CMS_ak8jet_jms_2017', 'lumi_13TeV_CurrCalib', 'CMS_btag_cferr2', 'CMS_ak4jet_jesRelativeSample_2017', 'CMS_ak8jet_jesFlavorQCD', 'CMS_scale_met_2017', 'CMS_ak8jet_jesAbsolute_2017', 'UEPS_FSR', 'CMS_eff_e_2017', 'QCDscale_qq_ACCEPT', 'CMS_ak4jet_jesAbsolute', 'CMS_ak8jet_jesRelativeBal', 'CMS_eff_prefiring_2017', 'lumi_13TeV_BBDefl', 'ggWWnorm', 'pdf_qq_ACCEPT', 'CMS_eff_Wtag_2017', 'CMS_btag_lf', 'CMS_PU_2017', 'CMS_eff_hww_sngele_trigger_2017', 'CMS_eff_m_2017', 'CMS_btag_lfstats2_2017', 'CMS_scale_electron_2017', 'CMS_ak4jet_jesHF_2017', 'CMS_ak4jet_jesEC2', 'lumi_13TeV_DynBeta', 'MultiVnorm2017', 'CMS_btag_hfstats1_2017', 'pdf_ttbar_ACCEPT', 'CMS_ak4jet_jesBBEC1_2017', 'CMS_ak4jet_jesBBEC1', 'CMS_ak8jet_jer_2017', 'pdf_Higgs_qqbar', 'CMS_btag_lfstats1_2017', 'dynorm2017', 'CMS_ak8jet_jmr_2017', 'CMS_ak8jet_jesRelativeSample_2017', 'QCDscale_Higgs_gg', 'CMS_btag_hf', 'CMS_eff_hww_sngmu_trigger_2017', 'CMS_ak8jet_jesBBEC1_2017', 'CMS_scale_muon_2017', 'QCDscale_Higgs_qqbar']
+
+
+print len(list2017)
+
+NuisanceCategory2017={
+    'lumionisty':{
+        'alias':'Luminosity', 
+        'type':'norm',
+        'list':['lumi_13TeV_LSCale', 'lumi_13TeV_Ghosts', 'lumi_13TeV_2017', 'lumi_13TeV_XYFact', 'lumi_13TeV_CurrCalib', 'lumi_13TeV_BBDefl', 'lumi_13TeV_DynBeta']
+    },
+    'ak4jet_jes_jer':{
+        'alias':'AK4Jet JES/JER', 
+        'list':['CMS_ak4jet_jesEC2_2017', 'CMS_ak4jet_jesRelativeBal', 'CMS_ak4jet_jer_2017', 'CMS_ak4jet_jesAbsolute_2017', 'CMS_ak4jet_jesFlavorQCD', 'CMS_ak4jet_jesHF', 'CMS_ak4jet_jesRelativeSample_2017', 'CMS_ak4jet_jesAbsolute', 'CMS_ak4jet_jesHF_2017', 'CMS_ak4jet_jesEC2', 'CMS_ak4jet_jesBBEC1_2017', 'CMS_ak4jet_jesBBEC1']
+    },
+    'ak8jet_jes_jer':{
+        'alias':'AK8Jet JES/JER', 
+        'list':['CMS_ak8jet_jesBBEC1', 'CMS_ak8jet_jesHF_2017', 'CMS_ak8jet_jesAbsolute', 'CMS_ak8jet_jesEC2_2017', 'CMS_ak8jet_jesEC2', 'CMS_ak8jet_jesHF', 'CMS_ak8jet_jesFlavorQCD', 'CMS_ak8jet_jesAbsolute_2017', 'CMS_ak8jet_jesRelativeBal', 'CMS_ak8jet_jer_2017', 'CMS_ak8jet_jesRelativeSample_2017', 'CMS_ak8jet_jesBBEC1_2017']
+
+    },
+    'wtag_jms_jmr':{
+        'alias':'WtagAK8Jet JMSJMR',
+        'list':['CMS_ak8jet_jms_2017', 'CMS_ak8jet_jmr_2017']
+    },
+    'Wtag_eff':{
+        'alias':'WtagAK8Jet Eff.',
+        'list':['CMS_eff_Wtag_2017']
+    },
+    'mjjshape':{
+        'alias':'AK4Jet MjjShape',
+        'list':['mjjshape_2017'],
+        },
+    'btag':{
+        'alias':'B-tagging',
+        'list':['CMS_btag_lf', 'CMS_btag_hfstats2_2017', 'CMS_btag_lfstats2_2017', 'CMS_btag_hfstats1_2017', 'CMS_btag_lfstats1_2017', 'CMS_btag_cferr1', 'CMS_btag_cferr2', 'CMS_btag_hf']
+    },
+    'MET':{
+        'alias':'Missing Energy',
+        'list':['CMS_scale_met_2017']
+    },
+    'pdf_accept':{
+        'alias':'PDF Acceptance',
+        'list':['pdf_gg_ACCEPT', 'pdf_qq_ACCEPT', 'pdf_ttbar_ACCEPT']
+    },
+    'qcdscale_accept':{
+        'alias':'QCD scale Acceptance',
+        'list':['QCDscale_qq_ACCEPT', 'QCDscale_ttbar_ACCEPT', 'QCDscale_gg_ACCEPT'],
+        },
+    'xsec_pdf':{
+        'alias':'PDF Signal Norm.',
+        'type':'norm',
+        'list':['pdf_Higgs_qqbar', 'pdf_Higgs_gg']
+    },
+    'xsec_qcdscale':{
+        'alias':'QCD scale Norm.',
+        'type':'norm',
+        'list':['QCDscale_Higgs_gg', 'QCDscale_Higgs_qqbar'],
+    },
+    'PS':{
+        'alias':'Parton Shower Model',
+        'list':['UEPS_FSR', 'UEPS_ISR']
+    },
+    'bkgnorm':{
+        'alias':'Background Norm.',
+        'type':'norm',
+        'list':['ggWWnorm', 'MultiVnorm2017', 'dynorm2017'],
+    },
+    'ElectronTrigger':{
+        'alias':'ElectronTrigger Effieicny',
+        'list':['CMS_eff_hww_sngele_trigger_2017'],
+    },
+    'MuonTrigger':{
+        'alias':'MuonTrigger Effieicny',
+        'list':['CMS_eff_hww_sngmu_trigger_2017']
+    },
+    'ElectronID':{
+        'alias':'Electron Identification',
+        'list':['CMS_eff_e_2017'],
+        },
+    'MuonID':{
+        'alias':'Muon Identification',
+        'list':['CMS_eff_m_2017'],
+    },
+    'ElectronEnergyScale':{
+        'alias':'Electron Energy Scale',
+        'list':['CMS_scale_electron_2017']
+    },
+    'MuonEnergyScale':{
+        'alias':'Muon Momentum Scale',
+        'list':['CMS_scale_muon_2017']
+    },
+    'Prefireing':{
+        'alias':'Prefiring',
+        'list':['CMS_eff_prefiring_2017']
+    },
+    'pu':{
+        'alias':'PileUp',
+        'list':['CMS_PU_2017']
+    }
+}
+
+Vaidation(list2017,NuisanceCategory2017)
+print [NuisanceCategory2017[nui]['alias'] for nui in NuisanceCategory2017]

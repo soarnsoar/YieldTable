@@ -18,7 +18,7 @@ def RunTable():
         #       TT                                           QCD                                          WmHWWlnuqq_M125                              Wjets                                        DY              \
         #                             ZHWWlnuqq_M125                               SingleTop                                    WpHWWlnuqq_M125                              
     conf_2016_GGF0_SR={
-        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SR_MEKDTAG_M1500_C0.001/Event/shapes/histos___BoostedGGF_SR_MEKDTAG_M1500_C0.001.root',
+        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SR_MEKDTAG_M1500_C0.01/Event/shapes/histos___BoostedGGF_SR_MEKDTAG_M1500_C0.01.root',
         'processlist':['ggH_hww2000_c10brn00','qqH_hww2000_c10brn00','qqWWqq','ggWW','MultiV','tW','TT','QCD','WmHWWlnuqq_M125','Wjets','DY','ZHWWlnuqq_M125','SingleTop','WpHWWlnuqq_M125'],
         'toCombine':{
             'MultiBoson':['MultiV','WmHWWlnuqq_M125','ZHWWlnuqq_M125','WpHWWlnuqq_M125'],
@@ -29,7 +29,7 @@ def RunTable():
     }
 
     conf_2016_GGF0_SB={
-        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SB_MEKDTAG_M1500_C0.001/Event/shapes/histos___BoostedGGF_SB_MEKDTAG_M1500_C0.001.root',
+        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SB_MEKDTAG_M1500_C0.01/Event/shapes/histos___BoostedGGF_SB_MEKDTAG_M1500_C0.01.root',
         'processlist':['ggH_hww2000_c10brn00','qqH_hww2000_c10brn00','qqWWqq','ggWW','MultiV','tW','TT','QCD','WmHWWlnuqq_M125','Wjets','DY','ZHWWlnuqq_M125','SingleTop','WpHWWlnuqq_M125'],
         'toCombine':{
             'MultiBoson':['MultiV','WmHWWlnuqq_M125','ZHWWlnuqq_M125','WpHWWlnuqq_M125'],
@@ -40,7 +40,7 @@ def RunTable():
     }
 
     conf_2016_GGF0_TOP={
-        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_TOP_MEKDTAG_M1500_C0.001/Event/shapes/histos___BoostedGGF_TOP_MEKDTAG_M1500_C0.001.root',
+        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_TOP_MEKDTAG_M1500_C0.01/Event/shapes/histos___BoostedGGF_TOP_MEKDTAG_M1500_C0.01.root',
         'processlist':['ggH_hww2000_c10brn00','qqH_hww2000_c10brn00','qqWWqq','ggWW','MultiV','tW','TT','QCD','WmHWWlnuqq_M125','Wjets','DY','ZHWWlnuqq_M125','SingleTop','WpHWWlnuqq_M125'],
         'toCombine':{
             'MultiBoson':['MultiV','WmHWWlnuqq_M125','ZHWWlnuqq_M125','WpHWWlnuqq_M125'],
@@ -52,7 +52,7 @@ def RunTable():
 
 
     conf_2016_GGF1_SR={
-        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SR_UNTAGGED_M1500_C0.001/Event/shapes/histos___BoostedGGF_SR_UNTAGGED_M1500_C0.001.root',
+        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SR_UNTAGGED_M1500_C0.01/Event/shapes/histos___BoostedGGF_SR_UNTAGGED_M1500_C0.01.root',
         'processlist':['ggH_hww2000_c10brn00','qqH_hww2000_c10brn00','qqWWqq','ggWW','MultiV','tW','TT','QCD','WmHWWlnuqq_M125','Wjets','DY','ZHWWlnuqq_M125','SingleTop','WpHWWlnuqq_M125'],
         'toCombine':{
             'MultiBoson':['MultiV','WmHWWlnuqq_M125','ZHWWlnuqq_M125','WpHWWlnuqq_M125'],
@@ -63,7 +63,7 @@ def RunTable():
     }
 
     conf_2016_GGF1_SB={
-        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SB_UNTAGGED_M1500_C0.001/Event/shapes/histos___BoostedGGF_SB_UNTAGGED_M1500_C0.001.root',
+        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_SB_UNTAGGED_M1500_C0.01/Event/shapes/histos___BoostedGGF_SB_UNTAGGED_M1500_C0.01.root',
         'processlist':['ggH_hww2000_c10brn00','qqH_hww2000_c10brn00','qqWWqq','ggWW','MultiV','tW','TT','QCD','WmHWWlnuqq_M125','Wjets','DY','ZHWWlnuqq_M125','SingleTop','WpHWWlnuqq_M125'],
         'toCombine':{
             'MultiBoson':['MultiV','WmHWWlnuqq_M125','ZHWWlnuqq_M125','WpHWWlnuqq_M125'],
@@ -74,7 +74,7 @@ def RunTable():
     }
 
     conf_2016_GGF1_TOP={
-        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_TOP_UNTAGGED_M1500_C0.001/Event/shapes/histos___BoostedGGF_TOP_UNTAGGED_M1500_C0.001.root',
+        'inputpath':'../2016/Datacards_2016/Datacard_M2000/__BoostedGGF_TOP_UNTAGGED_M1500_C0.01/Event/shapes/histos___BoostedGGF_TOP_UNTAGGED_M1500_C0.01.root',
         'processlist':['ggH_hww2000_c10brn00','qqH_hww2000_c10brn00','qqWWqq','ggWW','MultiV','tW','TT','QCD','WmHWWlnuqq_M125','Wjets','DY','ZHWWlnuqq_M125','SingleTop','WpHWWlnuqq_M125'],
         'toCombine':{
             'MultiBoson':['MultiV','WmHWWlnuqq_M125','ZHWWlnuqq_M125','WpHWWlnuqq_M125'],
