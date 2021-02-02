@@ -23,27 +23,36 @@ def ReadYield(inputpath,processlist):
 def GetConf():
 
 	##../../2016/rootFile_2016_cms_scratch_jhchoi_Statonly_noTreeBase_NoMEKD_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root
+        #rootFile_2016__cms_scratch_jhchoi_WW_mass_finebinning_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR
+        #rootFile_2016__cms_scratch_jhchoi_WW_mass_finebinning_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR
+
 	configuration={
                 '2016':{
                         'inputlist':{
-                                '__BoostedALL_SR_NoMEKDCut':'../../2016/rootFile_2016_cms_scratch_jhchoi_Statonly_noTreeBase_NoMEKD_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
-                                '___ResolvedALL__SR_NoMEKDCut':'../../2016/rootFile_2016_cms_scratch_jhchoi_Statonly_noTreeBase_NoMEKD_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                '__BoostedGGF_SR_NoMEKDCut':'../../2016/rootFile_2016__cms_scratch_jhchoi_WW_mass_finebinning_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '__BoostedVBF_SR_NoMEKDCut':'../../2016/rootFile_2016__cms_scratch_jhchoi_WW_mass_finebinning_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '___ResolvedGGF__SR_NoMEKDCut':'../../2016/rootFile_2016__cms_scratch_jhchoi_WW_mass_finebinning_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '___ResolvedVBF__SR_NoMEKDCut':'../../2016/rootFile_2016__cms_scratch_jhchoi_WW_mass_finebinning_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
                         },
                         'inputxsec':1.,
                         'inputlumi':35.9,
                 },
                 '2017':{
                         'inputlist':{
-                                '__BoostedALL_SR_NoMEKDCut':'../../2017/rootFile_2017_cms_scratch_jhchoi_Statonly_noTreeBase_NoMEKD_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
-                                '___ResolvedALL__SR_NoMEKDCut':'../../2017/rootFile_2017_cms_scratch_jhchoi_Statonly_noTreeBase_NoMEKD_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                '__BoostedGGF_SR_NoMEKDCut':'../../2017/rootFile_2017__cms_scratch_jhchoi_WW_mass_finebinning_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '__BoostedVBF_SR_NoMEKDCut':'../../2017/rootFile_2017__cms_scratch_jhchoi_WW_mass_finebinning_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '___ResolvedGGF__SR_NoMEKDCut':'../../2017/rootFile_2017__cms_scratch_jhchoi_WW_mass_finebinning_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '___ResolvedVBF__SR_NoMEKDCut':'../../2017/rootFile_2017__cms_scratch_jhchoi_WW_mass_finebinning_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
                         },
                         'inputxsec':1.,
                         'inputlumi':41.5,
                 },
                 '2018':{
                         'inputlist':{
-                                '__BoostedALL_SR_NoMEKDCut':'../../2018/rootFile_2018_cms_scratch_jhchoi_Statonly_noTreeBase_NoMEKD_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
-                                '___ResolvedALL__SR_NoMEKDCut':'../../2018/rootFile_2018_cms_scratch_jhchoi_Statonly_noTreeBase_NoMEKD_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                '__BoostedGGF_SR_NoMEKDCut':'../../2018/rootFile_2018__cms_scratch_jhchoi_WW_mass_finebinning_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '__BoostedGGF_SR_NoMEKDCut':'../../2018/rootFile_2018__cms_scratch_jhchoi_WW_mass_finebinning_Boosted_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '___ResolvedVBF__SR_NoMEKDCut':'../../2018/rootFile_2018__cms_scratch_jhchoi_WW_mass_finebinning_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                '___ResolvedVBF__SR_NoMEKDCut':'../../2018/rootFile_2018__cms_scratch_jhchoi_WW_mass_finebinning_Resolved_HMFull_V13_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
                         },
                         'inputxsec':1.,
                         'inputlumi':59.7,
