@@ -1,6 +1,15 @@
 import ROOT
+import glob
 import sys
 from TGraphHelper import *
+from LatinoAnalysis.Tools.commonTools import *
+#this_xsec=HiggsXS.GetHiggsProdXS('YR4','13TeV','ggH',int(MX),'bsm')*HiggsXS.GetHiggsBR('YR4','H_WW',int(MX),'bsm')
+#this_xsec=HiggsXS.GetHiggsProdXS('YR4','13TeV','vbfH',int(MX),'bsm')*HiggsXS.GetHiggsBR('YR4','H_WW',int(MX),'bsm')
+
+
+HiggsXS = HiggsXSection()
+
+
 #sys.path.insert(0,'../python/')
 #from Utils import *
 #def ReadYield(inputpath,processlist):
@@ -45,27 +54,27 @@ def GetConf():
                         'inputlist':{
                                 'Boost GGF':{
                                         'cut':'__BoostedGGF_SR_MEKDTAG_M1500_C0.01',
-                                        'inputfile':'../../2016/rootFile_2016__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2016/rootFile*Boosted*SR*/hadd.root'
                                 },
                                 'Boost Untagged':{
                                         'cut':'__BoostedGGF_SR_UNTAGGED_M1500_C0.01',
-                                        'inputfile':'../../2016/rootFile_2016__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2016/rootFile*Boosted*SR*/hadd.root',
                                 },
                                 'Boost VBF':{
                                         'cut':'__BoostedVBF_SR_NoMEKDCut',
-                                        'inputfile':'../../2016/rootFile_2016__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2016/rootFile*Boosted*SR*/hadd.root',
                                 },
                                 'Resol GGF':{
                                         'cut':'___ResolvedGGF__SR_MEKDTAG_M400_C0.01',
-                                        'inputfile':'../../2016/rootFile_2016__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2016/rootFile*Resolved*SR*/hadd.root',
                                 },
                                 'Resol Untagged':{
                                         'cut':'___ResolvedGGF__SR_UNTAGGED_M400_C0.01',
-                                        'inputfile':'../../2016/rootFile_2016__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2016/rootFile*Resolved*SR*/hadd.root'
                                 },
                                 'Resol VBF':{
                                         'cut':'___ResolvedVBF__SR_NoMEKDCut',
-                                        'inputfile':'../../2016/rootFile_2016__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2016/rootFile*Resolved*SR*/hadd.root'
                                 },
                         },
                         'inputxsec':1.,
@@ -75,27 +84,27 @@ def GetConf():
                         'inputlist':{
                                 'Boost GGF':{
                                         'cut':'__BoostedGGF_SR_MEKDTAG_M1500_C0.01',
-                                        'inputfile':'../../2017/rootFile_2017__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2017/rootFile*Boosted*SR*/hadd.root'
                                 },
                                 'Boost Untagged':{
                                         'cut':'__BoostedGGF_SR_UNTAGGED_M1500_C0.01',
-                                        'inputfile':'../../2017/rootFile_2017__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2017/rootFile*Boosted*SR*/hadd.root',
                                 },
                                 'Boost VBF':{
                                         'cut':'__BoostedVBF_SR_NoMEKDCut',
-                                        'inputfile':'../../2017/rootFile_2017__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2017/rootFile*Boosted*SR*/hadd.root',
                                 },
                                 'Resol GGF':{
                                         'cut':'___ResolvedGGF__SR_MEKDTAG_M400_C0.01',
-                                        'inputfile':'../../2017/rootFile_2017__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2017/rootFile*Resolved*SR*/hadd.root',
                                 },
                                 'Resol Untagged':{
                                         'cut':'___ResolvedGGF__SR_UNTAGGED_M400_C0.01',
-                                        'inputfile':'../../2017/rootFile_2017__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2017/rootFile*Resolved*SR*/hadd.root'
                                 },
                                 'Resol VBF':{
                                         'cut':'___ResolvedVBF__SR_NoMEKDCut',
-                                        'inputfile':'../../2017/rootFile_2017__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2017/rootFile*Resolved*SR*/hadd.root'
                                 },
                         },
 
@@ -106,27 +115,27 @@ def GetConf():
                         'inputlist':{
                                 'Boost GGF':{
                                         'cut':'__BoostedGGF_SR_MEKDTAG_M1500_C0.01',
-                                        'inputfile':'../../2018/rootFile_2018__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2018/rootFile*Boosted*SR*/hadd.root'
                                 },
                                 'Boost Untagged':{
                                         'cut':'__BoostedGGF_SR_UNTAGGED_M1500_C0.01',
-                                        'inputfile':'../../2018/rootFile_2018__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2018/rootFile*Boosted*SR*/hadd.root',
                                 },
                                 'Boost VBF':{
                                         'cut':'__BoostedVBF_SR_NoMEKDCut',
-                                        'inputfile':'../../2018/rootFile_2018__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Boosted_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2018/rootFile*Boosted*SR*/hadd.root',
                                 },
                                 'Resol GGF':{
                                         'cut':'___ResolvedGGF__SR_MEKDTAG_M400_C0.01',
-                                        'inputfile':'../../2018/rootFile_2018__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root',
+                                        'inputfile':'../../2018/rootFile*Resolved*SR*/hadd.root',
                                 },
                                 'Resol Untagged':{
                                         'cut':'___ResolvedGGF__SR_UNTAGGED_M400_C0.01',
-                                        'inputfile':'../../2018/rootFile_2018__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2018/rootFile*Resolved*SR*/hadd.root'
                                 },
                                 'Resol VBF':{
                                         'cut':'___ResolvedVBF__SR_NoMEKDCut',
-                                        'inputfile':'../../2018/rootFile_2018__cms_scratch_jhchoi_Final2101010_0.01MEKD_REGROUP_Resolved_HMFull_V12_RelW0.02_DeepAK8WP0p5_dMchi2Resolution_SR/hadd.root'
+                                        'inputfile':'../../2018/rootFile*Resolved*SR*/hadd.root'
                                 },
                         },
 
@@ -140,20 +149,29 @@ def GetEff(proc,Year):
         #/cms_scratch/jhchoi/Final2101010_0.01MEKD_REGROUP/YieldTable/SignalEfficiency
         ###---
         configuration=GetConf()
+        MX=int(GetMassInProc(proc))
         #ReadYield(inputpath,processlist)
         #Year='2016'
         #proc='ggH_hww5000_c10brn00'
         prod=''
-        if 'ggH' in proc:prod='ggf'
-        if 'qqH' in proc:prod='vbf'
+        if 'ggH' in proc:
+                prod='ggf'
+                this_xsec=HiggsXS.GetHiggsProdXS('YR4','13TeV','ggH',int(MX),'bsm')*HiggsXS.GetHiggsBR('YR4','H_WW',int(MX),'bsm')
+        if 'qqH' in proc:
+                prod='vbf'
+                this_xsec=HiggsXS.GetHiggsProdXS('YR4','13TeV','vbfH',int(MX),'bsm')*HiggsXS.GetHiggsBR('YR4','H_WW',int(MX),'bsm')
         #print Year,proc
         #print configuration[Year]['inputlist']
         my_yield=0.
         my_yield_list=[]
+        #this_xsec=HiggsXS.GetHiggsProdXS('YR4','13TeV','ggH',int(MX),'bsm')*HiggsXS.GetHiggsBR('YR4','H_WW',int(MX),'bsm')
+        #this_xsec=HiggsXS.GetHiggsProdXS('YR4','13TeV','vbfH',int(MX),'bsm')*HiggsXS.GetHiggsBR('YR4','H_WW',int(MX),'bsm')
 
-        total_prod=configuration[Year]['inputxsec']*configuration[Year]['inputlumi']*1000.
+
+        #total_prod=configuration[Year]['inputxsec']*configuration[Year]['inputlumi']*1000.
+        total_prod=this_xsec*configuration[Year]['inputlumi']*1000.
         for rg in configuration[Year]['inputlist']:
-                inputpath=configuration[Year]['inputlist'][rg]['inputfile']
+                inputpath=glob.glob(configuration[Year]['inputlist'][rg]['inputfile'])[0]
                 #__BoostedALL_SR_NoMEKDCut
                 #___ResolvedALL__SR_NoMEKDCut
                 cut=configuration[Year]['inputlist'][rg]['cut']
@@ -181,6 +199,8 @@ def GetProcName(prod,mass):
         if prod=='ggf':proc='ggH_hww'+str(mass)+'_c10brn00'
         if prod=='vbf':proc='qqH_hww'+str(mass)+'_c10brn00'
         return proc
+def GetMassInProc(proc):
+        return proc.split('hww')[1].split('_')[0]
 def DrawMassVsTotalEff(prod,Year,min_mass=200):
         #ggH_hww5000_c10brn00
         proc='ggH_hww5000_c10brn00'
